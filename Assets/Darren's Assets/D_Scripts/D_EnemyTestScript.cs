@@ -5,6 +5,7 @@ using UnityEngine;
 public class D_EnemyTestScript : MonoBehaviour
 {
     public int Speed = 3;
+    public string Type;
     
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class D_EnemyTestScript : MonoBehaviour
 
     void Reposition()
     {
-        float randY = Random.Range(-6f, 6f);
+        float randY = Random.Range(-5f, 5f);
         this.transform.position = new Vector3(-8, randY, 0);
     }
 

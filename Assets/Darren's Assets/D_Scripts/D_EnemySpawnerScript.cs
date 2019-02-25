@@ -39,11 +39,11 @@ public class D_EnemySpawnerScript : MonoBehaviour
         TotalEnemyCount = EnemyObjects.Count * EnemyPoolAmount;
     }
     //gets an object from the list pooledObjects.
-    public GameObject GetPooledObject()
+    public GameObject GetPooledObject(int index)
     {
         for (int i = 0; i < pooledEnemyObjects.Count; ++i)
         {
-            if (!pooledEnemyObjects[i].activeInHierarchy)
+            if (!pooledEnemyObjects[i].activeInHierarchy && pooledEnemyObjects[i].name == string.Format("{0}(Clone)", EnemyObjects[index].name))
             {
                 return pooledEnemyObjects[i];
             }

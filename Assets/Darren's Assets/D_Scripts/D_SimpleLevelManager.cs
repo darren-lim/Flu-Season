@@ -8,6 +8,8 @@ public class D_SimpleLevelManager : MonoBehaviour
     public int wave = 0;
     //cannot be higher than number of spawned enemies in the spawner script.
     public int NumberOfEnemiesToSpawn = 5;
+    public int MinSpawn = 5;
+    public int SpawnEnemyIndex = 0;
     D_EnemySpawnerScript SpawnerScript;
     List<GameObject> EnemyObjList;
 
@@ -37,22 +39,25 @@ public class D_SimpleLevelManager : MonoBehaviour
     public void NextWave()
     {
         wave++;
-        int[] index = {0};
-        /*
-        if (wave > 2)
+        int enemyListLen = EnemyObjList.Count;
+
+        if (enemyListLen > SpawnEnemyIndex + 1)
         {
-            index = new int[] {0,1};
+            if (wave == 3)
+            {
+                SpawnEnemyIndex++;
+            }
+            else if (wave == 5)
+            {
+                SpawnEnemyIndex++;
+            }
         }
-        else if(wave > 5)
-        {
-            index = new int[] { 0, 1, 2 };
-        }
-        */
-        EnableEnemies(index);
+        NumberOfEnemiesToSpawn = MinSpawn += wave;
+        StartCoroutine(SpawnEnemies(SpawnEnemyIndex));
         //start again
         //make couroutine
     }
-
+    /*
     void EnableEnemies(int[] EnemyIndex)
     {
         //choose enemies to spawn
@@ -65,5 +70,33 @@ public class D_SimpleLevelManager : MonoBehaviour
                 break;
             EnemyObj.SetActive(true);
         }
+    }
+    */
+    IEnumerator SpawnEnemies(int EnemyNum)
+    {
+        for (int i = 0; i <= EnemyNum; i++)
+        {
+            int SpawnNumber = NumberOfEnemiesToSpawn; //to initialize
+            if(EnemyNum != 0)
+            {
+                SpawnNumber = Random.Range(NumberOfEnemiesToSpawn / 2, NumberOfEnemiesToSpawn-1); //so at least SOME enemies spawn
+            }
+            //check last iteration of index
+            if(i == EnemyNum && NumberOfEnemiesToSpawn > 0)
+            {
+                SpawnNumber = NumberOfEnemiesToSpawn;
+            }
+            for (int k = 0; k < SpawnNumber; k++)
+            {
+                //need to check which enemy is which
+                GameObject EnemyObj = SpawnerScript.GetPooledObject(i);
+                if (EnemyObj == null)
+                    break;
+                EnemyObj.SetActive(true);
+                yield return new WaitForSeconds(Random.Range(0.2f, 0.6f));
+            }
+            NumberOfEnemiesToSpawn -= SpawnNumber;
+        }
+        yield return null;
     }
 }
