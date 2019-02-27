@@ -15,4 +15,13 @@ public class Bullet_despawner : MonoBehaviour
     {
         
     }
+
+    
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.CompareTag("Bullet") || collider.CompareTag("EnemyBullet"))
+        {
+            Destroy(collider.gameObject);
+        }
+    }
 }

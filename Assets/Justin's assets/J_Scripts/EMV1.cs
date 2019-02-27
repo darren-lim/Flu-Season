@@ -5,7 +5,7 @@ using UnityEngine;
 public class EMV1 : MonoBehaviour
 {
     private GameObject player;
-    public float speed = 3f;
+    public float speed = 2f;
     
     
     // Start is called before the first frame update
