@@ -84,7 +84,7 @@ public class D_PlayerTestScript : MonoBehaviour
     private void CheckBoundaries()
     {
         Vector2 playerPos = Camera.main.WorldToScreenPoint(mRigidbody.position);
-        mRigidbody.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, Input.GetAxis("Vertical") * speed);
+        mRigidbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, Input.GetAxisRaw("Vertical") * speed);
 
         if (playerPos.x < lboundary)
             mRigidbody.velocity = new Vector2(Mathf.Max(0, mRigidbody.velocity.x),mRigidbody.velocity.y);
