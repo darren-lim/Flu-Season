@@ -5,20 +5,34 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     //movement
-    private Rigidbody2D m_rb;
+    private Rigidbody2D rb;
+    private Collider2D cd;          private float cdcd = 3f;
+
     [SerializeField] protected float speed = 4f;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        m_rb = this.GetComponent<Rigidbody2D>();
+        rb = this.GetComponent<Rigidbody2D>();
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            //WHY DIDN'T YOU DODGE
+            Dodge();
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //Kick hospital bed
+            KickBed();
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();
+
     }
     void Move()
     {
@@ -27,10 +41,20 @@ public class Player : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
     
         Vector2 mvmt = new Vector2(moveX, moveY);
-        Vector2 currentVelocity = m_rb.velocity;
+        Vector2 currentVelocity = rb.velocity;
 
-        m_rb.velocity = new Vector2(moveX * speed, moveY * speed);
+        rb.velocity = new Vector2(moveX * speed, moveY * speed);
 
 
     }
+    void Dodge()
+    {
+
+
+    }
+    void KickBed()
+    {
+
+    }
+    
 }

@@ -8,6 +8,8 @@ TagManager:
   - Wall
   - Vaccine
   - Border
+  - Bullet
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
