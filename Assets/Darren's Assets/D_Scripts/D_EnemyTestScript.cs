@@ -6,7 +6,8 @@ public class D_EnemyTestScript : MonoBehaviour
 {
     public int Speed = 3;
     public string Type;
-    
+    private GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,7 @@ public class D_EnemyTestScript : MonoBehaviour
 
     private void OnEnable()
     {
-        Reposition();
+        //Reposition();
     }
 
     void Reposition()
@@ -27,19 +28,17 @@ public class D_EnemyTestScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.Translate(new Vector3(Time.deltaTime * Speed, 0, 0));
+        player = GameObject.Find("Player");
+        if (player != null)
+            transform.position = Vector2.MoveTowards(transform.position, player.GetComponent<Transform>().position, Speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //subtract health whatever
-        if(collision.gameObject.tag == "Wall")
-            this.gameObject.SetActive(false);
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
-            this.Reposition();
     }
 }

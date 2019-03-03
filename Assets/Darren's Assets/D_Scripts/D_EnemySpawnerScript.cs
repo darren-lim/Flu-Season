@@ -46,11 +46,19 @@ public class D_EnemySpawnerScript : MonoBehaviour
     {
         for (int i = 0; i < pooledEnemyObjects.Count; ++i)
         {
-            if (!pooledEnemyObjects[i].activeInHierarchy && pooledEnemyObjects[i].name == string.Format("{0}(Clone)", EnemyObjects[index].name))
+            if (pooledEnemyObjects[i]!= null && !pooledEnemyObjects[i].activeInHierarchy && pooledEnemyObjects[i].name == string.Format("{0}(Clone)", EnemyObjects[index].name))
             {
                 return pooledEnemyObjects[i];
             }
         }
         return null;
+    }
+
+    public GameObject PoolMoreEnemies(int listIndex)
+    {
+        GameObject obj = (GameObject)Instantiate(EnemyObjects[listIndex]);
+        obj.SetActive(false);
+        pooledEnemyObjects.Add(obj);
+        return obj;
     }
 }

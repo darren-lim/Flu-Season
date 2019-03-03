@@ -25,7 +25,7 @@ public class D_PlayerTestScript : MonoBehaviour
     private double uboundary;
     private double dboundary;
 
-
+    private D_SimpleLevelManager LManager;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +40,8 @@ public class D_PlayerTestScript : MonoBehaviour
         // Initialize player rigidbody & collider
         mRigidbody = this.GetComponent<Rigidbody2D>();
         mCollider = this.GetComponent<Collider2D>();
+
+        LManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<D_SimpleLevelManager>();
     }
 
     // Update is called once per frame
@@ -56,7 +58,7 @@ public class D_PlayerTestScript : MonoBehaviour
     private void Move()
     {
         CheckBoundaries();
-        GetDirection();
+        //GetDirection();
         //PrintDirection();
     }
 
@@ -78,6 +80,7 @@ public class D_PlayerTestScript : MonoBehaviour
             else
                 lives--;
         }
+        LManager.playerLives = lives;
     }
 
     // Helper functions
@@ -177,6 +180,14 @@ public class D_PlayerTestScript : MonoBehaviour
             default:
                 Debug.Log("ERROR: Something is wrong with direction!");
                 break;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Wall")
+        {
+            mRigidbody.velocity = Vector3.zero;
         }
     }
 }
