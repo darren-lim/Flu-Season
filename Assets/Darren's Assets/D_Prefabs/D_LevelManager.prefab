@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyObjects:
   - {fileID: 5202951581089281979, guid: 5d2a81b7842b46e418978c245d080fc7, type: 3}
-  EachEnemyPoolAmount: 30
+  - {fileID: 5202951581089281979, guid: eab9079be4b03134ba402865913392c4, type: 3}
+  EachEnemyPoolAmount: 20
 --- !u!114 &7791445514920842055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,12 +75,34 @@ MonoBehaviour:
   WaveText: {fileID: 0}
   OnTakeDamage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: UpdateLives
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnEnemyKill:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: UpdateScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   Score: 0
