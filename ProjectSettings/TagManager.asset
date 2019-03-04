@@ -12,6 +12,7 @@ TagManager:
   - EnemyBullet
   - SpawnPoint
   - LevelManager
+  - PauseCanvas
   layers:
   - Default
   - TransparentFX
