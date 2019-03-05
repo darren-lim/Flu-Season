@@ -4720,5 +4720,16 @@ PrefabInstance:
       propertyPath: OnEnemyKill.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2032334392}
+    - target: {fileID: 7791445514920842057, guid: 96dc15ccb93d1c9458f5a268ace43dd4,
+        type: 3}
+      propertyPath: EnemyObjects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7791445514920842057, guid: 96dc15ccb93d1c9458f5a268ace43dd4,
+        type: 3}
+      propertyPath: EnemyObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 7253126852379318387, guid: cc4e0e65e2381054fa356b17b559fa83,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96dc15ccb93d1c9458f5a268ace43dd4, type: 3}

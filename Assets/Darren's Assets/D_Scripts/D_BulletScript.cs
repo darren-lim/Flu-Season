@@ -31,5 +31,10 @@ public class D_BulletScript : MonoBehaviour
             Destroy(this.gameObject);
         }
 
+        else if (collider.CompareTag("FatEnemy"))
+        {
+            Destroy(this.gameObject);
+        } 
+
     }
 }
