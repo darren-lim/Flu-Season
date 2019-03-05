@@ -7,6 +7,8 @@ public class D_UIManager : MonoBehaviour
 {
     public TextMeshProUGUI Reputation;
     public TextMeshProUGUI Lives;
+    public TextMeshProUGUI Gun;
+    public TextMeshProUGUI Invincibility;
     public GameObject PauseCanvas;
     public bool paused;
     public Shoot shootScript;
@@ -24,6 +26,8 @@ public class D_UIManager : MonoBehaviour
         {
             PauseOrResume();
         }
+        UpdateGun();
+        UpdateDodge();
     }
 
     public void UpdateLives()
@@ -33,6 +37,20 @@ public class D_UIManager : MonoBehaviour
     public void UpdateScore()
     {
         Reputation.text = string.Format("Reputation: {0}", D_SimpleLevelManager.current.Score);
+    }
+
+    public void UpdateGun()
+    {
+        Gun.text = Shoot.current.gunAmmoUIStr;
+    }
+
+    public void UpdateDodge()
+    {
+        if (!D_PlayerTestScript.current.dodging)
+            Invincibility.text = "Activate Dodge";
+        else
+            Invincibility.text = "";
+
     }
 
     public void PauseOrResume()

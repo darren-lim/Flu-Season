@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class D_PlayerTestScript : MonoBehaviour
 {
-    // Prefabs
-    public List<GameObject> VaccinePrefabs;
-    
+    [System.NonSerialized] public static D_PlayerTestScript current;
 
     // Player specific properties
     [SerializeField] private float speed = 5f;
-    private float vaccineSpeed = 8f;
     [System.NonSerialized] public int lives = 3; 
-    private int direction = 5; // 1 = E, 2 = NE, 3 = N, 4 = NW, 
-                               // 5 = W, 6 = SW, 7 = S, 8 = W
 
-    // Misc. helper variables
+    // Helper variables for boundary
     private Camera mCamera;
     private Rigidbody2D mRigidbody;
     private Collider2D mCollider;
@@ -25,9 +20,24 @@ public class D_PlayerTestScript : MonoBehaviour
     private double uboundary;
     private double dboundary;
 
+    // Helper variables for dodging/Iframes
+    public Sprite sprite1;
+    public Sprite sprite2;
+    public SpriteRenderer spriteRenderer;
+    [System.NonSerialized] public bool invincible = false;
+    [System.NonSerialized] public bool dodging = false;
+
+
     private D_SimpleLevelManager LManager;
 
-    // Start is called before the first frame update
+    void Awake()
+    {
+        if (current == null)
+            current = this;
+        else
+            Destroy(this.gameObject);
+    }
+
     void Start()
     {
         // Use Camera to initialize boundaries 
@@ -41,36 +51,46 @@ public class D_PlayerTestScript : MonoBehaviour
         mRigidbody = this.GetComponent<Rigidbody2D>();
         mCollider = this.GetComponent<Collider2D>();
 
+        // Initialize the spriteRenderer
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer.sprite == null)
+            spriteRenderer.sprite = sprite1;
+        else
+            sprite1 = spriteRenderer.sprite;
+        
+
         LManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<D_SimpleLevelManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //need to check direction of movement, to rotate player to look towards direction
-        //8 directions, N NW W SW S SE E NE
         Move();
 
-        if (Input.GetKeyDown(KeyCode.Space))
-            Shoot();
+        if (Input.GetKeyDown(KeyCode.Space) && !dodging && !invincible)
+        {
+            dodging = true;
+            StartCoroutine(SpotDodge());
+        }
+          
     }
 
     private void Move()
     {
         CheckBoundaries();
-        //GetDirection();
-        //PrintDirection();
     }
 
-    void Shoot()
+    IEnumerator SpotDodge()
     {
-        GameObject current_vaccine = Instantiate(VaccinePrefabs[direction-1], this.transform.position, Quaternion.identity);
-        current_vaccine.GetComponent<Rigidbody2D>().velocity = GetVaccVelocity();
+        StartCoroutine(GenIFrames());
+        yield return new WaitForSecondsRealtime(10);
+        dodging = false;
     }
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") && !invincible)
         {
             if (lives == 1)
             {
@@ -79,6 +99,7 @@ public class D_PlayerTestScript : MonoBehaviour
             }
             else
                 lives--;
+            StartCoroutine(GenIFrames());
         }
         LManager.playerLives = lives;
     }
@@ -97,97 +118,26 @@ public class D_PlayerTestScript : MonoBehaviour
             mRigidbody.velocity = new Vector2(mRigidbody.velocity.x, Mathf.Min(0, mRigidbody.velocity.y));
         if (playerPos.y < dboundary)
             mRigidbody.velocity = new Vector2(mRigidbody.velocity.x, Mathf.Max(0, mRigidbody.velocity.y));
-
     }
 
-    private void GetDirection()
+    private IEnumerator GenIFrames()
     {
-        if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow))
-            direction = 2;
-        else if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow))
-            direction = 4;
-        else if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow))
-            direction = 6;
-        else if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.RightArrow))
-            direction = 8;
-        else if (Input.GetKey(KeyCode.RightArrow))
-            direction = 1;
-        else if (Input.GetKey(KeyCode.UpArrow))
-            direction = 3;
-        else if (Input.GetKey(KeyCode.LeftArrow))
-            direction = 5;
-        else if (Input.GetKey(KeyCode.DownArrow))
-            direction = 7;
+        BecomeInvincible();
+        yield return new WaitForSecondsRealtime(2);
+        BecomeInvincible();
     }
 
-    Vector2 GetVaccVelocity()
+    private void BecomeInvincible()
     {
-        switch (direction)
+        if (spriteRenderer.sprite == sprite1)
         {
-            case 1:
-                return Vector2.right * vaccineSpeed;
-            case 2:
-                return new Vector2(1,1) * vaccineSpeed;
-            case 3:
-                return Vector2.up * vaccineSpeed;
-            case 4:
-                return new Vector2(-1, 1) * vaccineSpeed;
-            case 5:
-                return Vector2.left * vaccineSpeed;
-            case 6:
-                return new Vector2(-1, -1) * vaccineSpeed;
-            case 7:
-                return Vector2.down * vaccineSpeed;
-            case 8:
-                return new Vector2(1, -1) * vaccineSpeed;
-            default:
-                Debug.Log("ERROR: Something is wrong with direction!");
-                break;
+            spriteRenderer.sprite = sprite2;
+            invincible = true;
         }
-
-        return new Vector2(0,0);
-    }
-
-    // Debugging Functions
-    private void PrintDirection()
-    {
-        switch (direction)
+        else
         {
-            case 1:
-                Debug.Log("E");
-                break;
-            case 2:
-                Debug.Log("NE");
-                break;
-            case 3:
-                Debug.Log("N");
-                break;
-            case 4:
-                Debug.Log("NW");
-                break;
-            case 5:
-                Debug.Log("W");
-                break;
-            case 6:
-                Debug.Log("SW");
-                break;
-            case 7:
-                Debug.Log("S");
-                break;
-            case 8:
-                Debug.Log("SE");
-                break;
-            default:
-                Debug.Log("ERROR: Something is wrong with direction!");
-                break;
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Wall")
-        {
-            mRigidbody.velocity = Vector3.zero;
+            spriteRenderer.sprite = sprite1;
+            invincible = false;
         }
     }
 }
