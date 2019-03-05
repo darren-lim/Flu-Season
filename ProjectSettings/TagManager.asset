@@ -13,6 +13,7 @@ TagManager:
   - SpawnPoint
   - LevelManager
   - PauseCanvas
+  - FatEnemy
   layers:
   - Default
   - TransparentFX
