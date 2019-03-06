@@ -9,6 +9,7 @@ public class D_UIManager : MonoBehaviour
     public TextMeshProUGUI Lives;
     public TextMeshProUGUI Gun;
     public TextMeshProUGUI Invincibility;
+    public TextMeshProUGUI EnemyLeft;
     public GameObject PauseCanvas;
     public bool paused;
     public Shoot shootScript;
@@ -37,6 +38,7 @@ public class D_UIManager : MonoBehaviour
     public void UpdateScore()
     {
         Reputation.text = string.Format("Reputation: {0}", D_SimpleLevelManager.current.Score);
+        EnemyLeft.text = string.Format("Enemies Left: {0}", D_SimpleLevelManager.current.EnemiesLeft);
     }
 
     public void UpdateGun()

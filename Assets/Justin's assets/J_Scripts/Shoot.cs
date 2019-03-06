@@ -38,7 +38,7 @@ public class Shoot : MonoBehaviour
     void Update()
     {
         gunAmmoUIStr = returnUpdates();
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.LeftShift))
             Pew();
         if (Input.GetKey(KeyCode.Mouse0) && currentWeapon == weaponType.machineGun && fired == false && ammo[1] != 0)
             StartCoroutine(PewMachineGun());
