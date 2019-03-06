@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 849871287106370199}
   m_Layer: 0
   m_Name: enemy2
-  m_TagString: FatEnemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 44d758751362c2a49b1de9ab3060a969, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c1c37859236f98744bedac995ce6aaa2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

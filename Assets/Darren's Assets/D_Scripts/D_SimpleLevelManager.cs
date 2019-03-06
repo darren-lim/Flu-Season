@@ -17,6 +17,7 @@ public class D_SimpleLevelManager : MonoBehaviour
 
     public UnityEvent OnTakeDamage;
     public UnityEvent OnEnemyKill;
+    public int EnemiesLeft;
     public int Score;
     public int playerLives;
 
@@ -76,6 +77,8 @@ public class D_SimpleLevelManager : MonoBehaviour
             }
         }
         NumberOfEnemiesToSpawn = MinSpawn + (int)(wave*1.5);
+        EnemiesLeft = NumberOfEnemiesToSpawn+1;
+        EnemyKill(0);
         StartCoroutine(SpawnEnemies(SpawnEnemyIndex));
     }
     //add boss wave?
@@ -122,6 +125,7 @@ public class D_SimpleLevelManager : MonoBehaviour
     public void EnemyKill(int addScore)
     {
         Score += addScore;
+        EnemiesLeft -= 1;
         OnEnemyKill.Invoke();
     }
     public void PlayerTakeDamage()
