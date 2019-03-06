@@ -90,7 +90,7 @@ public class D_PlayerTestScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy") && !invincible)
+        if ((other.CompareTag("Enemy") || other.CompareTag("FatEnemy")) && !invincible)
         {
             if (lives == 1)
             {
