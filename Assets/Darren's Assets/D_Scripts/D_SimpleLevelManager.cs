@@ -17,6 +17,7 @@ public class D_SimpleLevelManager : MonoBehaviour
 
     public UnityEvent OnTakeDamage;
     public UnityEvent OnEnemyKill;
+    public UnityEvent OnGameOver;
     public int EnemiesLeft;
     public int Score;
     public int playerLives;
@@ -36,6 +37,7 @@ public class D_SimpleLevelManager : MonoBehaviour
             current = this;
         else
             Destroy(this.gameObject);
+        Time.timeScale = 1;
     }
 
     void Start()
@@ -64,7 +66,6 @@ public class D_SimpleLevelManager : MonoBehaviour
     public void NextWave()
     {
         spawning = true;
-        wave++;
         int enemyListLen = EnemyObjList.Count;
         //from the list of enemies, if there is more than one, we add the next
         //enemy onto the field after a set amount of waves.
@@ -76,7 +77,8 @@ public class D_SimpleLevelManager : MonoBehaviour
                 LastNewEnemyWave = wave;
             }
         }
-        NumberOfEnemiesToSpawn = MinSpawn + (int)(wave*1.5);
+        wave++;
+        NumberOfEnemiesToSpawn = MinSpawn + (int)(wave*2);
         EnemiesLeft = NumberOfEnemiesToSpawn+1;
         EnemyKill(0);
         StartCoroutine(SpawnEnemies(SpawnEnemyIndex));
@@ -90,18 +92,63 @@ public class D_SimpleLevelManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         WaveText.gameObject.SetActive(false);
         //start spawning
+        float[] SpawnWeights;
+        int TotalEnemiesLeft = NumberOfEnemiesToSpawn;
         for (int i = 0; i <= EnemyNum; i++)
         {
-            int SpawnNumber = NumberOfEnemiesToSpawn; //to initialize
+            int SpawnNumber = TotalEnemiesLeft; //to initialize
             //if there is more than one type of enemy
-            if(EnemyNum != 0)
+            if(wave < 6)
             {
-                SpawnNumber = Random.Range(NumberOfEnemiesToSpawn / 2, NumberOfEnemiesToSpawn-1); //so at least SOME enemies spawn
+                if (EnemyNum != 0)
+                {
+                    SpawnNumber = Random.Range(TotalEnemiesLeft / 2 - 2, TotalEnemiesLeft - 3); //so at least SOME enemies spawn
+                }
+                //check if we are at last iteration of index
+                if (i == EnemyNum && TotalEnemiesLeft > 0)
+                {
+                    SpawnNumber = TotalEnemiesLeft;
+                }
             }
-            //check if we are at last iteration of index
-            if(i == EnemyNum && NumberOfEnemiesToSpawn > 0)
+            else
             {
-                SpawnNumber = NumberOfEnemiesToSpawn;
+                //All enemies have been spawned
+                //add weights to spawning enemies, more towards powerful ones.
+                
+                if (wave == 6) //20 30 30 10 10
+                {
+                    SpawnWeights = new float[] { 0.2f, 0.3f, 0.3f, 0.1f, 0.1f };
+                    SpawnNumber = (int)(NumberOfEnemiesToSpawn*SpawnWeights[i]);
+                }
+                else if(wave == 7) //10 20 30 20 10
+                {
+                    SpawnWeights = new float[] { 0.1f, 0.2f, 0.3f, 0.2f, 0.1f };
+                    SpawnNumber = (int)(NumberOfEnemiesToSpawn * SpawnWeights[i]);
+                }
+                else if(wave == 8) //0 10 30 30 30
+                {
+                    SpawnWeights = new float[] { 0f, 0.1f, 0.3f, 0.3f, 0.3f };
+                    SpawnNumber = (int)(NumberOfEnemiesToSpawn * SpawnWeights[i]);
+                }
+                else if(wave == 9) //0 0 20 40 40
+                {
+                    SpawnWeights = new float[] { 0.0f, 0.0f, 0.2f, 0.4f, 0.4f };
+                    SpawnNumber = (int)(NumberOfEnemiesToSpawn * SpawnWeights[i]);
+                }
+                else if(wave == 10) //bosswave
+                {
+                    //spawn boss
+                    SpawnWeights = new float[] { 0.2f, 0.3f, 0.3f, 0.1f, 0.1f };
+                    SpawnNumber = (int)(NumberOfEnemiesToSpawn * SpawnWeights[i]);
+                }
+                else if (wave > 10)
+                {
+                    GameOver();
+                }
+                if (i == EnemyNum && TotalEnemiesLeft > 0)
+                {
+                    SpawnNumber = TotalEnemiesLeft;
+                }
             }
             for (int k = 0; k < SpawnNumber; k++)
             {
@@ -116,7 +163,7 @@ public class D_SimpleLevelManager : MonoBehaviour
                 EnemyObj.transform.position = SpawnPointsList[RandSpawnPoint].transform.position;
                 yield return new WaitForSeconds(Random.Range(0.2f, 0.6f));
             }
-            NumberOfEnemiesToSpawn -= SpawnNumber;
+            TotalEnemiesLeft -= SpawnNumber;
         }
         spawning = false;
         yield return null;
@@ -135,6 +182,6 @@ public class D_SimpleLevelManager : MonoBehaviour
     //game over, set time to 0
     public void GameOver()
     {
-        Time.timeScale = 0;
+        OnGameOver.Invoke();
     }
 }

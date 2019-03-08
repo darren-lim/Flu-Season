@@ -13,7 +13,6 @@ public class D_SceneManager : MonoBehaviour
             current = this;
         else
             Destroy(this.gameObject);
-        DontDestroyOnLoad(this.gameObject);
     }
 
     // Start is called before the first frame update

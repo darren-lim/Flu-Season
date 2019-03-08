@@ -45,3 +45,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Reputation: {fileID: 0}
   Lives: {fileID: 0}
+  Gun: {fileID: 0}
+  Invincibility: {fileID: 0}
+  EnemyLeft: {fileID: 0}
+  GOScore: {fileID: 0}
+  PauseCanvas: {fileID: 0}
+  GameOverCanvas: {fileID: 0}
+  paused: 0
+  shootScript: {fileID: 0}
