@@ -9,8 +9,10 @@ public class camera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Switch to 640 x 480 full-screen
+        //Screen.SetResolution(800, 600, false);
         offset = transform.position - player.transform.position;
-
+        
     }
 
     // Update is called once per frame

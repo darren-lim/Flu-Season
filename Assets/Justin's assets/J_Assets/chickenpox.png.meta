@@ -1,13 +1,15 @@
 fileFormatVersion: 2
-guid: b8df3a2718d5ea5478a24eb2d8b6ace9
+guid: dddc9047368a7284bac74b9671da0e56
 TextureImporter:
   fileIDToRecycleName:
-    21300000: FSp1 rolls (1)_0
-    21300002: FSp1 rolls (1)_1
-    21300004: FSp1 rolls (1)_2
-    21300006: FSp1 rolls (1)_3
-    21300008: FSp1 rolls (1)_4
-    21300010: FSp1 rolls (1)_5
+    21300000: chickenpox_0
+    21300002: chickenpox_1
+    21300004: chickenpox_2
+    21300006: chickenpox_3
+    21300008: chickenpox_4
+    21300010: chickenpox_5
+    21300012: chickenpox_6
+    21300014: chickenpox_7
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -90,13 +92,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FSp1 rolls (1)_0
+      name: chickenpox_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 64
-        width: 21
-        height: 29
+        x: 7
+        y: 65
+        width: 17
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -104,19 +106,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcf2fe05576d5954da70d8e4f111a7c3
+      spriteID: 0bdb8b25b2c03f64cae4783d3ad4d83a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FSp1 rolls (1)_1
+      name: chickenpox_1
       rect:
         serializedVersion: 2
-        x: 38
-        y: 67
-        width: 21
-        height: 29
+        x: 7
+        y: 33
+        width: 17
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,39 +126,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0832a33197887ad45b585d79995d2222
+      spriteID: 0025ae539ec60574a91542e7ce4734ee
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FSp1 rolls (1)_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 30
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e962df50bd52b6746a04ecc926796588
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FSp1 rolls (1)_3
+      name: chickenpox_2
       rect:
         serializedVersion: 2
         x: 34
-        y: 32
-        width: 30
-        height: 29
+        y: 33
+        width: 26
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,19 +146,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b74eb3d58ec935b47bd03e1e53768a66
+      spriteID: 63bc13b055457624e9b216e743d7b5d5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FSp1 rolls (1)_4
+      name: chickenpox_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 3
-        width: 29
-        height: 28
+        x: 39
+        y: 65
+        width: 17
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,19 +166,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7d0c097df2fed0418f7cab5d3a565b4
+      spriteID: e2a88b1f1e9423b4d9269081db65beac
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FSp1 rolls (1)_5
+      name: chickenpox_4
       rect:
         serializedVersion: 2
-        x: 35
-        y: 3
-        width: 29
-        height: 27
+        x: 71
+        y: 65
+        width: 17
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,7 +186,67 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82c222b251822434da1e1e6382c97c22
+      spriteID: aa92c3b60ba3d2045aa7c3e4a4ea5480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chickenpox_5
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 33
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bc8b772e0acc0d4d8c7e641b903db02
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chickenpox_6
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 1
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe6000880e75b844c8fecbdbb1c3471b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chickenpox_7
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed1d91b951ae5d74c892056b228ff84c
       vertices: []
       indices: 
       edges: []
@@ -212,7 +254,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e57422c989291a44ca5c4834ee17189c
+    spriteID: 7fc1815d1ea0f684f9471022cf280d99
     vertices: []
     indices: 
     edges: []

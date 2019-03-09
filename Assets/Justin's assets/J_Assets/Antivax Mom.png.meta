@@ -1,13 +1,12 @@
 fileFormatVersion: 2
-guid: b8df3a2718d5ea5478a24eb2d8b6ace9
+guid: 45fd397b75ccbc449b011a9a0e1695a8
 TextureImporter:
   fileIDToRecycleName:
-    21300000: FSp1 rolls (1)_0
-    21300002: FSp1 rolls (1)_1
-    21300004: FSp1 rolls (1)_2
-    21300006: FSp1 rolls (1)_3
-    21300008: FSp1 rolls (1)_4
-    21300010: FSp1 rolls (1)_5
+    21300000: Antivax Mom_0
+    21300002: Antivax Mom_1
+    21300004: Antivax Mom_2
+    21300006: Antivax Mom_3
+    21300008: Antivax Mom_4
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -90,13 +89,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FSp1 rolls (1)_0
+      name: Antivax Mom_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 64
-        width: 21
-        height: 29
+        x: 72
+        y: 78
+        width: 47
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -104,19 +103,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcf2fe05576d5954da70d8e4f111a7c3
+      spriteID: 2d5ca46807fc28245b34c41df2651c9b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FSp1 rolls (1)_1
+      name: Antivax Mom_1
       rect:
         serializedVersion: 2
-        x: 38
-        y: 67
-        width: 21
-        height: 29
+        x: 9
+        y: 78
+        width: 47
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,19 +123,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0832a33197887ad45b585d79995d2222
+      spriteID: 24b48c1d95632634d82f7aa55edc31c6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FSp1 rolls (1)_2
+      name: Antivax Mom_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 30
-        height: 29
+        x: 12
+        y: 10
+        width: 42
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,19 +143,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e962df50bd52b6746a04ecc926796588
+      spriteID: a087b9732a9731149aecdd3d207fb9a8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FSp1 rolls (1)_3
+      name: Antivax Mom_3
       rect:
         serializedVersion: 2
-        x: 34
-        y: 32
-        width: 30
-        height: 29
+        x: 73
+        y: 142
+        width: 47
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,19 +163,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b74eb3d58ec935b47bd03e1e53768a66
+      spriteID: d902fba4f28d3b8489f8c9c133315dcf
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FSp1 rolls (1)_4
+      name: Antivax Mom_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 3
-        width: 29
-        height: 28
+        x: 8
+        y: 142
+        width: 47
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,27 +183,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7d0c097df2fed0418f7cab5d3a565b4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FSp1 rolls (1)_5
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 3
-        width: 29
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 82c222b251822434da1e1e6382c97c22
+      spriteID: e34f4ae4510443b4fb7fcd54ff12b1af
       vertices: []
       indices: 
       edges: []
@@ -212,7 +191,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e57422c989291a44ca5c4834ee17189c
+    spriteID: 5357e4975dd29ec44a75f0a50e1a670a
     vertices: []
     indices: 
     edges: []
