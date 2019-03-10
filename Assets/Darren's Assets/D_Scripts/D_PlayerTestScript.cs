@@ -27,15 +27,31 @@ public class D_PlayerTestScript : MonoBehaviour
     [System.NonSerialized] public bool invincible = false;
     [System.NonSerialized] public bool dodging = false;
 
+    //blink effect
+    public float blinkTimer = 0.0f;
+    public float blinkMiniDuration = 0.1f;
+    public float blinkTotalTimer = 0.0f;
+    public float blinkTotalDuration = 1.0f;
+    public bool startBlinking = false;
+    
 
     private D_SimpleLevelManager LManager;
+
+    //animations
+    private Animator m_animator;
 
     void Awake()
     {
         if (current == null)
+        {
             current = this;
+            m_animator = this.GetComponent<Animator>();
+        }
         else
+        {
             Destroy(this.gameObject);
+        }
+            
     }
 
     void Start()
@@ -72,7 +88,11 @@ public class D_PlayerTestScript : MonoBehaviour
             dodging = true;
             StartCoroutine(SpotDodge());
         }
-          
+        if (startBlinking)
+        {
+            SpriteBlinkingEffect();
+        }
+
     }
 
     private void Move()
@@ -87,26 +107,34 @@ public class D_PlayerTestScript : MonoBehaviour
         dodging = false;
     }
 
-
+    private bool already = false;
     void OnTriggerEnter2D(Collider2D other)
     {
-        if ((other.CompareTag("Enemy") || other.CompareTag("FatEnemy")) && !invincible)
+        
+        if ((other.CompareTag("Enemy") || other.CompareTag("FatEnemy")) && !invincible && !already)
         {
+            already = true;
+            invincible = true;
             if (lives == 1)
             {
                 Debug.Log("GAME OVER!");
                 Destroy(this.gameObject);
             }
             else
+            {
                 lives--;
-            StartCoroutine(GenIFrames());
+                startBlinking = true;
+            }
+                
         }
         LManager.playerLives = lives;
+        already = false;
     }
 
     // Helper functions
     private void CheckBoundaries()
     {
+
         Vector2 playerPos = Camera.main.WorldToScreenPoint(mRigidbody.position);
         mRigidbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, Input.GetAxisRaw("Vertical") * speed);
 
@@ -118,6 +146,39 @@ public class D_PlayerTestScript : MonoBehaviour
             mRigidbody.velocity = new Vector2(mRigidbody.velocity.x, Mathf.Min(0, mRigidbody.velocity.y));
         if (playerPos.y < dboundary)
             mRigidbody.velocity = new Vector2(mRigidbody.velocity.x, Mathf.Max(0, mRigidbody.velocity.y));
+
+        m_animator.SetFloat("Speed", Mathf.Abs(Input.GetAxisRaw("Horizontal") * speed) + Mathf.Abs(Input.GetAxisRaw("Vertical") * speed));
+        if (mRigidbody.velocity.x > 0)
+        {
+            m_animator.SetBool("Right", true);
+            m_animator.SetBool("Left", false);
+        }
+        if (mRigidbody.velocity.x < 0)
+        {
+            m_animator.SetBool("Right", false);
+            m_animator.SetBool("Left", true);
+        }
+        if (mRigidbody.velocity.x == 0)
+        {
+            m_animator.SetBool("Right", false);
+            m_animator.SetBool("Left", false);
+        }
+        if (mRigidbody.velocity.y > 0)
+        {
+            m_animator.SetBool("Up", true);
+            m_animator.SetBool("Down", false);
+        }
+        if (mRigidbody.velocity.y < 0)
+        {
+            m_animator.SetBool("Up", false);
+            m_animator.SetBool("Down", true);
+        }
+        if (mRigidbody.velocity.y == 0)
+        {
+            m_animator.SetBool("Up", false);
+            m_animator.SetBool("Down", false);
+        }
+
     }
 
     private IEnumerator GenIFrames()
@@ -129,15 +190,45 @@ public class D_PlayerTestScript : MonoBehaviour
 
     private void BecomeInvincible()
     {
-        if (spriteRenderer.sprite == sprite1)
+        if (!invincible)
         {
-            spriteRenderer.sprite = sprite2;
+            m_animator.SetBool("Dodge", true);
             invincible = true;
         }
         else
         {
-            spriteRenderer.sprite = sprite1;
+            m_animator.SetBool("Dodge", false);
             invincible = false;
+        }
+
+        
+    }
+    private void SpriteBlinkingEffect()
+    {
+        blinkTotalTimer += Time.deltaTime;
+        if (blinkTotalTimer >= blinkTotalDuration)
+        {
+            startBlinking = false;
+            blinkTotalTimer = 0.0f;
+            this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            this.GetComponent<BoxCollider2D>().enabled = true;
+            invincible = false;
+
+            return;
+        }
+        blinkTimer += Time.deltaTime;
+        if (blinkTimer >= blinkMiniDuration)
+        {
+            blinkTimer = 0.0f;
+            if (this.gameObject.GetComponent<SpriteRenderer>().enabled == true)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                invincible = true;
+            }
+            else
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            }
         }
     }
 }

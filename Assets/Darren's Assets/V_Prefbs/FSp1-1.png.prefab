@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 4291019576150901024}
   - component: {fileID: 2639853600011437895}
   - component: {fileID: 6445306424055301446}
+  - component: {fileID: 188293425}
   m_Layer: 0
   m_Name: FSp1-1.png
   m_TagString: Player
@@ -142,7 +143,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.03125, y: 0, z: 0.0625, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
@@ -186,13 +187,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37c6aa83fecb4044bf243e822a00d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VaccinePrefabs:
-  - {fileID: 3007500124888478666, guid: 617d9f74c04792c4ead32e3209fcf807, type: 3}
-  - {fileID: 8060976703432493819, guid: bcf5f4d550ad839489c8aa549bb2e115, type: 3}
-  - {fileID: 2778122028690564574, guid: f2c2e89114107b84baade8563ccc4d4e, type: 3}
-  - {fileID: 2076276187055259441, guid: 900ddeaf1b446d44bb821ec947381747, type: 3}
-  - {fileID: 6311718638276791189, guid: b5251aa05bcbeaf47b5fbe4922c10909, type: 3}
-  - {fileID: 8407403483919263553, guid: 9ae2619f4e655754da6c495e3da4e52c, type: 3}
-  - {fileID: 2356569738387002010, guid: f3741f76ed11ee6489186db25ddeb6a9, type: 3}
-  - {fileID: 5691716056618964799, guid: 769e9ce5b5c778445845eec8b0ac3af7, type: 3}
   speed: 5
+  sprite1: {fileID: 0}
+  sprite2: {fileID: 21300000, guid: 9e1f0d1cab5589e40a76164266b7959f, type: 3}
+  spriteRenderer: {fileID: 0}
+  blinkTimer: 0
+  blinkMiniDuration: 0.1
+  blinkTotalTimer: 0
+  blinkTotalDuration: 2
+  startBlinking: 0
+--- !u!95 &188293425
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2452843752484478590}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc830bc50a8f82c478424c0a3c7394ca, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

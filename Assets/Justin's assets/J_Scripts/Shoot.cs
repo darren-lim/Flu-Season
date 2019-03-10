@@ -8,6 +8,7 @@ public class Shoot : MonoBehaviour
     [System.NonSerialized] public string gunAmmoUIStr;
 
     public GameObject bullet;
+    public GameObject bullet1;
     private float offset = 0.5f;
     private float speed = 15f;
 
@@ -138,7 +139,7 @@ public class Shoot : MonoBehaviour
         Vector2 minePosition = this.transform.position;
         minePosition.x -= .2f;
         minePosition.y -= .2f;
-        GameObject clone = Instantiate(bullet, minePosition, Quaternion.identity);
+        GameObject clone = Instantiate(bullet1, minePosition, Quaternion.identity);
         ammo[2]--;
     }
 
