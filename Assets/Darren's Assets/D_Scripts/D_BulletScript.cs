@@ -25,14 +25,14 @@ public class D_BulletScript : MonoBehaviour
     {
         if (collider.CompareTag("Enemy"))
         {
-            collider.gameObject.SetActive(false);
-            GameObject.FindGameObjectWithTag("LevelManager").GetComponent<D_SimpleLevelManager>().EnemyKill(1);
+            //collider.gameObject.SetActive(false);
+            //GameObject.FindGameObjectWithTag("LevelManager").GetComponent<D_SimpleLevelManager>().EnemyKill(1);
             //for next enemies, have health?
             FindObjectOfType<D_AudioManager>().Play("EnemyDeath");
             Destroy(this.gameObject);
         }
 
-        else if (collider.CompareTag("FatEnemy"))
+        /*else if (collider.CompareTag("FatEnemy"))
         {
             Destroy(this.gameObject);
         }
@@ -42,6 +42,6 @@ public class D_BulletScript : MonoBehaviour
             Destroy(collider.gameObject);
             Destroy(this.gameObject);
         }
-
+        */
     }
 }

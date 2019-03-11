@@ -140,7 +140,7 @@ public class Shoot : MonoBehaviour
         Vector2 minePosition = this.transform.position;
         minePosition.x -= .2f;
         minePosition.y -= .2f;
-        GameObject clone = Instantiate(bullet1, minePosition, Quaternion.identity);
+        GameObject clone = Instantiate(bullet, minePosition, Quaternion.identity);
         ammo[2]--;
     }
 
