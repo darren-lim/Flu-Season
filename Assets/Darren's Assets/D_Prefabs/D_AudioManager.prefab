@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5a9c8217eb5d6b47ac8c6abb8e8d58d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 0}
   sounds:
   - name: Theme
     clip: {fileID: 8300000, guid: 5495afb48edbe49489967816b2418b4b, type: 3}
@@ -64,6 +65,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: PlayerGetHit
     clip: {fileID: 8300000, guid: e87ea4c3f10ef014c9a95f4a89e03625, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Heal
+    clip: {fileID: 8300000, guid: 1d7458fe8a375814fb6b93c219f62b18, type: 3}
     volume: 1
     pitch: 1
     loop: 0

@@ -23,6 +23,9 @@ public class D_SimpleLevelManager : MonoBehaviour
     public int Score;
     public int playerLives;
 
+    public GameObject Heart;
+    public float SpawnHeartCounter = 10f;
+
     [Header("Pls dont touch")]
     public int MinSpawn = 5;
     public int SpawnEnemyIndex = 0;
@@ -64,6 +67,12 @@ public class D_SimpleLevelManager : MonoBehaviour
         if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && !spawning)
         {
             NextWave();
+        }
+        SpawnHeartCounter -= Time.deltaTime;
+        if (SpawnHeartCounter < 0)
+        {
+            SpawnHeart();
+            SpawnHeartCounter = Random.Range(7f, 11f);
         }
     }
 
@@ -171,6 +180,11 @@ public class D_SimpleLevelManager : MonoBehaviour
         }
         spawning = false;
         yield return null;
+    }
+
+    public void SpawnHeart()
+    {
+        Instantiate(Heart);
     }
 
     public void EnemyKill(int addScore)

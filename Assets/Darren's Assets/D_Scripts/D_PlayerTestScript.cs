@@ -8,7 +8,7 @@ public class D_PlayerTestScript : MonoBehaviour
 
     // Player specific properties
     [SerializeField] private float speed = 5f;
-    [System.NonSerialized] public int lives = 3; 
+    [System.NonSerialized] public int lives = 5; 
 
     // Helper variables for boundary
     private Camera mCamera;

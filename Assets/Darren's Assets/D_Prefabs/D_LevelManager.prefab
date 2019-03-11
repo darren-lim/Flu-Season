@@ -50,7 +50,7 @@ MonoBehaviour:
   - {fileID: 7253126852379318387, guid: cc4e0e65e2381054fa356b17b559fa83, type: 3}
   - {fileID: 377475439767661027, guid: 70a835b99f14b8848b1bce241ca1d95e, type: 3}
   - {fileID: 377475439767661027, guid: 70a835b99f14b8848b1bce241ca1d95e, type: 3}
-  EachEnemyPoolAmount: 5
+  EachEnemyPoolAmount: 25
 --- !u!114 &7791445514920842055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,9 +64,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wave: 0
-  NumberOfEnemiesToSpawn: 10
+  NumberOfEnemiesToSpawn: 20
   AddEnemyToSpawnWave: 1
   SpawnPointsList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -128,6 +133,8 @@ MonoBehaviour:
   EnemiesLeft: 0
   Score: 0
   playerLives: 3
+  Heart: {fileID: 2291838664240114429, guid: c6d8a64d57100734a8699686212a1eda, type: 3}
+  SpawnHeartCounter: 10
   MinSpawn: 5
   SpawnEnemyIndex: 0
   LastNewEnemyWave: 0
