@@ -14,6 +14,7 @@ public class D_SimpleLevelManager : MonoBehaviour
     public GameObject[] SpawnPointsList; //PLEASE FILL IN INSPECTOR
 
     public TextMeshProUGUI WaveText; // maybe create a ui manager?
+    public TextMeshProUGUI GOText;
 
     public UnityEvent OnTakeDamage;
     public UnityEvent OnEnemyKill;
@@ -36,7 +37,10 @@ public class D_SimpleLevelManager : MonoBehaviour
         if (current == null)
             current = this;
         else
+        {
             Destroy(this.gameObject);
+            return;
+        }
         Time.timeScale = 1;
     }
 
@@ -182,6 +186,14 @@ public class D_SimpleLevelManager : MonoBehaviour
     //game over, set time to 0
     public void GameOver()
     {
+        if (wave > 10)
+        {
+            GOText.text = "You Win";
+        }
+        else
+        {
+            GOText.text = "Game Over";
+        }
         OnGameOver.Invoke();
     }
 }

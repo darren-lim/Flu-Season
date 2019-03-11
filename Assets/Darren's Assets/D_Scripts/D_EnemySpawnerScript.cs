@@ -19,7 +19,10 @@ public class D_EnemySpawnerScript : MonoBehaviour
         if (current == null)
             current = this;
         else
+        {
             Destroy(this.gameObject);
+            return;
+        }
     }
 
     private void Start()

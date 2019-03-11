@@ -15,6 +15,7 @@ TagManager:
   - PauseCanvas
   - FatEnemy
   - Enemy3
+  - AudioManager
   layers:
   - Default
   - TransparentFX

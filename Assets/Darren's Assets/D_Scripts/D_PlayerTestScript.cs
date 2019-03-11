@@ -118,11 +118,13 @@ public class D_PlayerTestScript : MonoBehaviour
             if (lives == 1)
             {
                 Debug.Log("GAME OVER!");
+                FindObjectOfType<D_AudioManager>().Play("EnemyDeath");
                 Destroy(this.gameObject);
             }
             else
             {
                 lives--;
+                FindObjectOfType<D_AudioManager>().Play("PlayerGetHit");
                 startBlinking = true;
             }
                 

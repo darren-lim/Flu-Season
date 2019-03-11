@@ -70,8 +70,9 @@ public class Shoot : MonoBehaviour
                 break;
             default:
                 Debug.Log("ERROR: Invalid Weapon Type");
-                break;
+                return;
         }
+        FindObjectOfType<D_AudioManager>().Play("Shoot");
     }
 
     // functions for firing each type of weapon

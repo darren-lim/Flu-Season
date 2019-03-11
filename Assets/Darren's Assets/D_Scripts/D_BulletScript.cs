@@ -28,6 +28,7 @@ public class D_BulletScript : MonoBehaviour
             collider.gameObject.SetActive(false);
             GameObject.FindGameObjectWithTag("LevelManager").GetComponent<D_SimpleLevelManager>().EnemyKill(1);
             //for next enemies, have health?
+            FindObjectOfType<D_AudioManager>().Play("EnemyDeath");
             Destroy(this.gameObject);
         }
 
