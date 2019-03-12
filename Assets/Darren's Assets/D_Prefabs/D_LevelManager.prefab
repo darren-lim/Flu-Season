@@ -64,8 +64,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wave: 0
-  NumberOfEnemiesToSpawn: 12
-  MinSpawn: 12
+  NumberOfEnemiesToSpawn: 10
+  MinSpawn: 10
   AddEnemyToSpawnWave: 1
   SpawnPointsList:
   - {fileID: 0}
