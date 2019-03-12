@@ -111,20 +111,20 @@ public class D_PlayerTestScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         
-        if ((other.CompareTag("Enemy") || other.CompareTag("FatEnemy")) && !invincible && !already)
+        if ((other.CompareTag("Enemy") || other.CompareTag("FatEnemy") || other.CompareTag("Boss") || other.CompareTag("Purse")) && !invincible && !already)
         {
             already = true;
             invincible = true;
             if (lives == 1)
             {
                 Debug.Log("GAME OVER!");
-                FindObjectOfType<D_AudioManager>().Play("EnemyDeath");
+                //FindObjectOfType<D_AudioManager>().Play("EnemyDeath");
                 Destroy(this.gameObject);
             }
             else
             {
                 lives--;
-                FindObjectOfType<D_AudioManager>().Play("PlayerGetHit");
+                //FindObjectOfType<D_AudioManager>().Play("PlayerGetHit");
                 startBlinking = true;
             }
                 
