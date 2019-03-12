@@ -17,6 +17,7 @@ TagManager:
   - Enemy3
   - AudioManager
   - Boss
+  - Purse
   layers:
   - Default
   - TransparentFX

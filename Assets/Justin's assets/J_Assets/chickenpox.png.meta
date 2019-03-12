@@ -95,10 +95,10 @@ TextureImporter:
       name: chickenpox_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 65
-        width: 17
-        height: 31
+        x: 0
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -106,7 +106,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bdb8b25b2c03f64cae4783d3ad4d83a
+      spriteID: 7da008196c4d4cb4bb988cd18de789dd
       vertices: []
       indices: 
       edges: []
@@ -115,10 +115,10 @@ TextureImporter:
       name: chickenpox_1
       rect:
         serializedVersion: 2
-        x: 7
-        y: 33
-        width: 17
-        height: 30
+        x: 32
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -126,7 +126,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0025ae539ec60574a91542e7ce4734ee
+      spriteID: 471c600183dad3f4482a3ae821af0cfe
       vertices: []
       indices: 
       edges: []
@@ -135,10 +135,10 @@ TextureImporter:
       name: chickenpox_2
       rect:
         serializedVersion: 2
-        x: 34
-        y: 33
-        width: 26
-        height: 31
+        x: 64
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,7 +146,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63bc13b055457624e9b216e743d7b5d5
+      spriteID: a07975a824756a14c9eb4d0376da2b40
       vertices: []
       indices: 
       edges: []
@@ -155,10 +155,10 @@ TextureImporter:
       name: chickenpox_3
       rect:
         serializedVersion: 2
-        x: 39
-        y: 65
-        width: 17
-        height: 30
+        x: 0
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,7 +166,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2a88b1f1e9423b4d9269081db65beac
+      spriteID: 5e7e6c383c654604593664d36569c936
       vertices: []
       indices: 
       edges: []
@@ -175,10 +175,10 @@ TextureImporter:
       name: chickenpox_4
       rect:
         serializedVersion: 2
-        x: 71
-        y: 65
-        width: 17
-        height: 31
+        x: 32
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,7 +186,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa92c3b60ba3d2045aa7c3e4a4ea5480
+      spriteID: 05c4801a763ce9644892fb227c3a1494
       vertices: []
       indices: 
       edges: []
@@ -195,10 +195,10 @@ TextureImporter:
       name: chickenpox_5
       rect:
         serializedVersion: 2
-        x: 66
-        y: 33
-        width: 26
-        height: 30
+        x: 64
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,7 +206,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bc8b772e0acc0d4d8c7e641b903db02
+      spriteID: 7d34325fd585baa4385d829cf4213c00
       vertices: []
       indices: 
       edges: []
@@ -215,10 +215,10 @@ TextureImporter:
       name: chickenpox_6
       rect:
         serializedVersion: 2
-        x: 36
-        y: 1
-        width: 26
-        height: 31
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,7 +226,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe6000880e75b844c8fecbdbb1c3471b
+      spriteID: 24385490d1ea66d4cbcc0e78d4923a16
       vertices: []
       indices: 
       edges: []
@@ -235,10 +235,10 @@ TextureImporter:
       name: chickenpox_7
       rect:
         serializedVersion: 2
-        x: 4
-        y: 1
-        width: 26
-        height: 30
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,7 +246,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed1d91b951ae5d74c892056b228ff84c
+      spriteID: dd415dc9361f3f940a1a7ec66b68c3c2
       vertices: []
       indices: 
       edges: []
