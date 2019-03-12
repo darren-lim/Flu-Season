@@ -49,7 +49,7 @@ MonoBehaviour:
   - {fileID: 5202951581089281979, guid: eab9079be4b03134ba402865913392c4, type: 3}
   - {fileID: 7253126852379318387, guid: cc4e0e65e2381054fa356b17b559fa83, type: 3}
   - {fileID: 377475439767661027, guid: 70a835b99f14b8848b1bce241ca1d95e, type: 3}
-  - {fileID: 377475439767661027, guid: 70a835b99f14b8848b1bce241ca1d95e, type: 3}
+  - {fileID: 5202951581089281979, guid: 00c0e3db4130a8f4f880d2d509cf072d, type: 3}
   EachEnemyPoolAmount: 10
 --- !u!114 &7791445514920842055
 MonoBehaviour:
