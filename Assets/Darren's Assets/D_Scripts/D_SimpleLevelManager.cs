@@ -74,7 +74,7 @@ public class D_SimpleLevelManager : MonoBehaviour
         if (SpawnHeartCounter < 0)
         {
             SpawnHeart();
-            SpawnHeartCounter = Random.Range(7f, 11f);
+            SpawnHeartCounter = Random.Range(5f, 11f);
         }
     }
 
@@ -101,7 +101,7 @@ public class D_SimpleLevelManager : MonoBehaviour
         NumberOfEnemiesToSpawn = MinSpawn + (int)(wave*2);
         EnemiesLeft = NumberOfEnemiesToSpawn+1;
         if (wave == 10)
-            EnemiesLeft = 2;
+            EnemiesLeft += 1;
         EnemyKill(0);
         NewWave();
         StartCoroutine(SpawnEnemies(SpawnEnemyIndex));
@@ -122,7 +122,6 @@ public class D_SimpleLevelManager : MonoBehaviour
             int RandSpawnPoint = Random.Range(0, SpawnPointsList.Length);
             GameObject clone = Instantiate(Boss);
             clone.transform.position = SpawnPointsList[RandSpawnPoint].transform.position;
-            yield break;
         }
         //start spawning
         float[] SpawnWeights;
@@ -166,6 +165,11 @@ public class D_SimpleLevelManager : MonoBehaviour
                 else if(wave == 9) //0 10 20 40 30
                 {
                     SpawnWeights = new float[] { 0.0f, 0.1f, 0.2f, 0.4f, 0.3f };
+                    SpawnNumber = (int)(NumberOfEnemiesToSpawn * SpawnWeights[i]);
+                }
+                else if(wave == 10) //10 10 20 30 30
+                {
+                    SpawnWeights = new float[] { 0.1f, 0.1f, 0.2f, 0.3f, 0.3f };
                     SpawnNumber = (int)(NumberOfEnemiesToSpawn * SpawnWeights[i]);
                 }
                 else if (wave > 10)

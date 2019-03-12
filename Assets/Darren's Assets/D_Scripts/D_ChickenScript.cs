@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class D_ChickenScript : D_EnemyAbstract
 {
-    public float Speed = 5f;
-    public int lives = 8;
+    public float Speed = 4.5f;
+    public int lives = 5;
     private GameObject player;
     bool dead = false;
 
@@ -17,7 +17,7 @@ public class D_ChickenScript : D_EnemyAbstract
 
     private void OnEnable()
     {
-        lives = 8;
+        lives = 5;
         dead = false;
     }
 

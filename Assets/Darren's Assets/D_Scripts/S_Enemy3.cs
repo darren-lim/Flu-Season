@@ -5,7 +5,7 @@ using UnityEngine;
 public class S_Enemy3 : D_EnemyAbstract
 {
     public int Speed = 3;
-    int lives = 5;
+    int lives = 3;
     public string Type;
     private GameObject player;
     private float wait_seconds = 2.0f;
@@ -23,7 +23,7 @@ public class S_Enemy3 : D_EnemyAbstract
 
     private void OnEnable()
     {
-        lives = 5;
+        lives = 3;
         dead = false;
     }
 
