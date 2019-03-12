@@ -16,6 +16,7 @@ TagManager:
   - FatEnemy
   - Enemy3
   - AudioManager
+  - Boss
   layers:
   - Default
   - TransparentFX
