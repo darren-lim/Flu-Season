@@ -5,7 +5,6 @@ using UnityEngine;
 public class S_Enemy2 : D_EnemyAbstract
 {
     public float Speed = .01f;
-    public string Type;
     private int e_lives = 3;
     private GameObject player;
     bool dead = false;

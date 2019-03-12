@@ -40,7 +40,8 @@ public class D_AudioManager : MonoBehaviour
     private void Start()
     {
         Play("Theme");
-        Debug.Log("Start");
+        if (slider == null)
+            return;
         slider.value = PlayerPrefs.GetFloat("Volume", 1);
     }
 

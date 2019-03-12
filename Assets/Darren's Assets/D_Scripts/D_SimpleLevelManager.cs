@@ -101,7 +101,7 @@ public class D_SimpleLevelManager : MonoBehaviour
         NumberOfEnemiesToSpawn = MinSpawn + (int)(wave*2);
         EnemiesLeft = NumberOfEnemiesToSpawn+1;
         if (wave == 10)
-            EnemiesLeft = 1;
+            EnemiesLeft = 2;
         EnemyKill(0);
         NewWave();
         StartCoroutine(SpawnEnemies(SpawnEnemyIndex));
@@ -109,6 +109,13 @@ public class D_SimpleLevelManager : MonoBehaviour
     //add boss wave?
     IEnumerator SpawnEnemies(int EnemyNum)
     {
+        //show wave number
+        WaveText.gameObject.SetActive(true);
+        WaveText.text = "WAVE: " + wave.ToString();
+        if (wave == 10)
+            WaveText.text = "Boss Battle";
+        yield return new WaitForSeconds(2);
+        WaveText.gameObject.SetActive(false);
         if (wave == 10) //bosswave
         {
             //spawn boss
@@ -117,13 +124,6 @@ public class D_SimpleLevelManager : MonoBehaviour
             clone.transform.position = SpawnPointsList[RandSpawnPoint].transform.position;
             yield break;
         }
-        //show wave number
-        WaveText.gameObject.SetActive(true);
-        WaveText.text = "WAVE: " + wave.ToString();
-        if (wave == 10)
-            WaveText.text = "Boss Battle";
-        yield return new WaitForSeconds(2);
-        WaveText.gameObject.SetActive(false);
         //start spawning
         float[] SpawnWeights;
         int TotalEnemiesLeft = NumberOfEnemiesToSpawn;
