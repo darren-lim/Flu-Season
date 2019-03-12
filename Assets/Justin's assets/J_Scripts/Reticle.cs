@@ -13,7 +13,7 @@ public class Reticle : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         mc = Input.mousePosition;
         mc = Camera.main.ScreenToWorldPoint(mc);

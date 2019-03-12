@@ -28,27 +28,12 @@ public class Mines : MonoBehaviour
         if (collider.CompareTag("Enemy") && !already)
         {
             already = true;
-            collider.gameObject.SetActive(false);
-            GameObject.FindGameObjectWithTag("LevelManager").GetComponent<D_SimpleLevelManager>().EnemyKill(1);
             //for next enemies, have health?
+            FindObjectOfType<D_AudioManager>().Play("EnemyDeath");
+
             health--;
             
         }
-
-        else if (collider.CompareTag("FatEnemy") && !already)
-        {
-            already = true;
-            health--;
-        }
-
-        else if (collider.CompareTag("Enemy3") && !already)
-        {
-            already = true;
-            Destroy(collider.gameObject);
-            health--;
-        }
-        if(health <= 0)
-            Destroy(this.gameObject);
 
         already = false;
     }

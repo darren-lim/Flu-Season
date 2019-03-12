@@ -77,13 +77,13 @@ public class Shoot : MonoBehaviour
     // functions for firing each type of weapon
     void PewPistol()
     {
-        Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = worldMousePos - this.transform.position;
-        direction.Normalize();
+        
+        Vector2 direction = (Input.mousePosition - Camera.main.WorldToScreenPoint(this.transform.position)).normalized;
+        
 
         GameObject clone = Instantiate(bullet, this.transform.position + (Vector3)(direction * 0.5f), Quaternion.identity);
         float rotation_z = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        clone.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation_z + offset);
+        clone.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation_z );
         clone.GetComponent<Rigidbody2D>().velocity = direction * speed;
         FindObjectOfType<D_AudioManager>().Play("Shoot");
     }
