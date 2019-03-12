@@ -111,7 +111,7 @@ public class D_PlayerTestScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         
-        if ((other.CompareTag("Enemy") || other.CompareTag("FatEnemy") || other.CompareTag("Boss") || other.CompareTag("Purse")) && !invincible && !already)
+        if ((other.CompareTag("Enemy") || other.CompareTag("EnemyBullet")) && !invincible && !already)
         {
             already = true;
             invincible = true;

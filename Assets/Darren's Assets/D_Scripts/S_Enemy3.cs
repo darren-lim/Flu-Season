@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class S_Enemy3 : MonoBehaviour
+public class S_Enemy3 : D_EnemyAbstract
 {
     public int Speed = 3;
     int lives = 5;
@@ -12,6 +12,7 @@ public class S_Enemy3 : MonoBehaviour
     private float start_time = 0.0f;
     //Renderer m_ObjectRenderer;
     SpriteRenderer rend;
+    bool dead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class S_Enemy3 : MonoBehaviour
     private void OnEnable()
     {
         lives = 5;
+        dead = false;
     }
 
     // Update is called once per frame
@@ -46,7 +48,7 @@ public class S_Enemy3 : MonoBehaviour
             start_time = Time.time + wait_seconds;
         }
     }
-
+    /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
@@ -54,13 +56,29 @@ public class S_Enemy3 : MonoBehaviour
             if (lives == 1)
             {
                 GameObject.FindGameObjectWithTag("LevelManager").GetComponent<D_SimpleLevelManager>().EnemyKill(5);
-                Destroy(this.gameObject);
+                this.gameObject.SetActive(false);
             }
             else
             {
                 lives--;
             }
 
+        }
+    }
+    */
+    public override void TakeDamage()
+    {
+        if (lives == 1)
+        {
+            if (dead)
+                return;
+            GameObject.FindGameObjectWithTag("LevelManager").GetComponent<D_SimpleLevelManager>().EnemyKill(5);
+            dead = true;
+            this.gameObject.SetActive(false);
+        }
+        else
+        {
+            lives--;
         }
     }
 }

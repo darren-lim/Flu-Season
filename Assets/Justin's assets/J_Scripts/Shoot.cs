@@ -172,5 +172,8 @@ public class Shoot : MonoBehaviour
         }
         return retVal;
     }
-
+    public void ResetAmmo()
+    {
+        ammo = new int[]{ 15,50,10};
+    }
 }

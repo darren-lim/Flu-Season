@@ -72,8 +72,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37c6aa83fecb4044bf243e822a00d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VaccinePrefabs: []
   speed: 5
+  sprite1: {fileID: 0}
+  sprite2: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  blinkTimer: 0
+  blinkMiniDuration: 0.1
+  blinkTotalTimer: 0
+  blinkTotalDuration: 1
+  startBlinking: 0
 --- !u!50 &471952003
 Rigidbody2D:
   serializedVersion: 4
@@ -94,7 +101,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &6417455912354271942
 GameObject:
   m_ObjectHideFlags: 0

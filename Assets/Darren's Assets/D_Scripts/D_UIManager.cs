@@ -33,7 +33,7 @@ public class D_UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && shootScript != null)
         {
             PauseOrResume();
         }
@@ -83,7 +83,7 @@ public class D_UIManager : MonoBehaviour
 
     public void PauseOrResume()
     {
-        if (PauseCanvas == null && shootScript == null)
+        if (shootScript == null && PauseCanvas == null)
             return;
         if (!paused)
         {

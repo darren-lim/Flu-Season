@@ -64,7 +64,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wave: 0
-  NumberOfEnemiesToSpawn: 20
+  NumberOfEnemiesToSpawn: 10
+  MinSpawn: 8
   AddEnemyToSpawnWave: 1
   SpawnPointsList:
   - {fileID: 0}
@@ -130,11 +131,27 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  OnNewWave:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: ResetAmmo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   EnemiesLeft: 0
   Score: 0
   playerLives: 5
   Heart: {fileID: 2291838664240114429, guid: c6d8a64d57100734a8699686212a1eda, type: 3}
   SpawnHeartCounter: 10
-  MinSpawn: 5
+  Boss: {fileID: 193651380910005837, guid: 52364b8a8c5c078438a994c344538456, type: 3}
   SpawnEnemyIndex: 0
   LastNewEnemyWave: 0

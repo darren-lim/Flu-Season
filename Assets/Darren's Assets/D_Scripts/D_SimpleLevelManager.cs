@@ -9,8 +9,9 @@ public class D_SimpleLevelManager : MonoBehaviour
     public static D_SimpleLevelManager current;
     public int wave = 0;
     //cannot be higher than number of spawned enemies in the spawner script.
-    public int NumberOfEnemiesToSpawn = 5;
-    public int AddEnemyToSpawnWave = 4; //after every num waves, a new enemy will spawn.
+    public int NumberOfEnemiesToSpawn = 10;
+    public int MinSpawn = 10;
+    public int AddEnemyToSpawnWave = 1; //after every num waves, a new enemy will spawn.
     public GameObject[] SpawnPointsList; //PLEASE FILL IN INSPECTOR
 
     public TextMeshProUGUI WaveText; // maybe create a ui manager?
@@ -19,15 +20,16 @@ public class D_SimpleLevelManager : MonoBehaviour
     public UnityEvent OnTakeDamage;
     public UnityEvent OnEnemyKill;
     public UnityEvent OnGameOver;
+    public UnityEvent OnNewWave;
     public int EnemiesLeft;
     public int Score;
     public int playerLives;
 
     public GameObject Heart;
     public float SpawnHeartCounter = 10f;
+    public GameObject Boss;
 
     [Header("Pls dont touch")]
-    public int MinSpawn = 5;
     public int SpawnEnemyIndex = 0;
     public int LastNewEnemyWave = 0;
 
@@ -91,20 +93,37 @@ public class D_SimpleLevelManager : MonoBehaviour
             }
         }
         wave++;
+        if (wave > 10)
+        {
+            GameOver();
+            return;
+        }
         NumberOfEnemiesToSpawn = MinSpawn + (int)(wave*2);
         EnemiesLeft = NumberOfEnemiesToSpawn+1;
+        if (wave == 10)
+            EnemiesLeft = 1;
         EnemyKill(0);
+        NewWave();
         StartCoroutine(SpawnEnemies(SpawnEnemyIndex));
     }
     //add boss wave?
     IEnumerator SpawnEnemies(int EnemyNum)
     {
+        if (wave == 10) //bosswave
+        {
+            //spawn boss
+            int RandSpawnPoint = Random.Range(0, SpawnPointsList.Length);
+            GameObject clone = Instantiate(Boss);
+            clone.transform.position = SpawnPointsList[RandSpawnPoint].transform.position;
+            yield break;
+        }
         //show wave number
         WaveText.gameObject.SetActive(true);
         WaveText.text = "WAVE: " + wave.ToString();
+        if (wave == 10)
+            WaveText.text = "Boss Battle";
         yield return new WaitForSeconds(2);
         WaveText.gameObject.SetActive(false);
-
         //start spawning
         float[] SpawnWeights;
         int TotalEnemiesLeft = NumberOfEnemiesToSpawn;
@@ -144,22 +163,16 @@ public class D_SimpleLevelManager : MonoBehaviour
                     SpawnWeights = new float[] { 0f, 0.1f, 0.3f, 0.3f, 0.3f };
                     SpawnNumber = (int)(NumberOfEnemiesToSpawn * SpawnWeights[i]);
                 }
-                else if(wave == 9) //0 0 20 40 40
+                else if(wave == 9) //0 10 20 40 30
                 {
-                    SpawnWeights = new float[] { 0.0f, 0.0f, 0.2f, 0.4f, 0.4f };
-                    SpawnNumber = (int)(NumberOfEnemiesToSpawn * SpawnWeights[i]);
-                }
-                else if(wave == 10) //bosswave
-                {
-                    //spawn boss
-                    SpawnWeights = new float[] { 0.2f, 0.3f, 0.3f, 0.1f, 0.1f };
+                    SpawnWeights = new float[] { 0.0f, 0.1f, 0.2f, 0.4f, 0.3f };
                     SpawnNumber = (int)(NumberOfEnemiesToSpawn * SpawnWeights[i]);
                 }
                 else if (wave > 10)
                 {
-                    GameOver();
+                    GameOver(); //failsafe
                 }
-                if (i == EnemyNum && TotalEnemiesLeft > 0)
+                if (i == EnemyNum && TotalEnemiesLeft > 0 && wave < 10)
                 {
                     SpawnNumber = TotalEnemiesLeft;
                 }
@@ -198,6 +211,10 @@ public class D_SimpleLevelManager : MonoBehaviour
     public void PlayerTakeDamage()
     {
         OnTakeDamage.Invoke();
+    }
+    public void NewWave()
+    {
+        OnNewWave.Invoke();
     }
     //game over, set time to 0
     public void GameOver()

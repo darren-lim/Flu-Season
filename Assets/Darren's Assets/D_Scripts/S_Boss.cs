@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class S_Boss : MonoBehaviour
+public class S_Boss : D_EnemyAbstract
 {
     public int Speed;
-    public string Type;
     private GameObject player;
     private float wait_seconds = 1.0f;
     private float start_time = 0.0f;
@@ -13,6 +12,7 @@ public class S_Boss : MonoBehaviour
     private float offset;
     private float bullet_speed;
     private int b_lives;
+    bool dead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,18 +23,11 @@ public class S_Boss : MonoBehaviour
         offset = 0.5f;
         b_lives = 20;
         player = GameObject.FindWithTag("Player");
-        
     }
 
     private void OnEnable()
     {
-        //Reposition();
-    }
-
-    void Reposition()
-    {
-        float randY = Random.Range(-5f, 5f);
-        this.transform.position = new Vector3(-8, randY, 0);
+        dead = false;
     }
 
     // Update is called once per frame
@@ -63,7 +56,7 @@ public class S_Boss : MonoBehaviour
         clone.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation_z + offset);
         clone.GetComponent<Rigidbody2D>().velocity = direction * bullet_speed;
     }
-
+    /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bullet"))
@@ -81,8 +74,20 @@ public class S_Boss : MonoBehaviour
 
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    */
+    public override void TakeDamage()
     {
+        if (b_lives == 1)
+        {
+            if (dead)
+                return;
+            GameObject.FindGameObjectWithTag("LevelManager").GetComponent<D_SimpleLevelManager>().EnemyKill(10);
+            dead = true;
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            b_lives--;
+        }
     }
 }

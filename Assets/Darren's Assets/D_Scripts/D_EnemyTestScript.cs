@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class D_EnemyTestScript : MonoBehaviour
+public class D_EnemyTestScript : D_EnemyAbstract
 {
     public int Speed = 3;
     public string Type;
     private GameObject player;
+    bool dead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,7 @@ public class D_EnemyTestScript : MonoBehaviour
 
     private void OnEnable()
     {
-
+        dead = false;
     }
 
 
@@ -27,17 +28,21 @@ public class D_EnemyTestScript : MonoBehaviour
         if (player != null)
             transform.position = Vector2.MoveTowards(transform.position, player.GetComponent<Transform>().position, Speed * Time.deltaTime);
     }
-
+    /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bullet"))
         {
             GameObject.FindGameObjectWithTag("LevelManager").GetComponent<D_SimpleLevelManager>().EnemyKill(1);
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    }*/
+    public override void TakeDamage()
     {
+        if (dead)
+            return;
+        GameObject.FindGameObjectWithTag("LevelManager").GetComponent<D_SimpleLevelManager>().EnemyKill(1);
+        dead = true;
+        this.gameObject.SetActive(false);
     }
 }
