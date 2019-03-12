@@ -54,7 +54,8 @@ public class S_Enemy3 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        GameObject.FindGameObjectWithTag("LevelManager").GetComponent<D_SimpleLevelManager>().EnemyKill(1);
+        Destroy(this.gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
