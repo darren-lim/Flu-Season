@@ -16,14 +16,9 @@ public class D_EnemyTestScript : MonoBehaviour
 
     private void OnEnable()
     {
-        //Reposition();
+
     }
 
-    void Reposition()
-    {
-        float randY = Random.Range(-5f, 5f);
-        this.transform.position = new Vector3(-8, randY, 0);
-    }
 
     // Update is called once per frame
     void Update()

@@ -132,7 +132,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   EnemiesLeft: 0
   Score: 0
-  playerLives: 3
+  playerLives: 5
   Heart: {fileID: 2291838664240114429, guid: c6d8a64d57100734a8699686212a1eda, type: 3}
   SpawnHeartCounter: 10
   MinSpawn: 5

@@ -16,6 +16,9 @@ public class D_UIManager : MonoBehaviour
     public GameObject GameOverCanvas;
     public bool paused;
     public Shoot shootScript;
+    public GameObject[] Hearts; // 5 HEARTS
+
+    private int LifeStore; // keep track of life before changes
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,7 @@ public class D_UIManager : MonoBehaviour
         GameOverCanvas.gameObject.SetActive(false);
         D_SimpleLevelManager.current.OnTakeDamage.AddListener(UpdateLives);
         D_SimpleLevelManager.current.OnGameOver.AddListener(GameOver);
+        LifeStore = D_SimpleLevelManager.current.playerLives;
     }
 
     // Update is called once per frame
@@ -39,7 +43,16 @@ public class D_UIManager : MonoBehaviour
 
     public void UpdateLives()
     {
-        Lives.text = string.Format("Lives: {0}", D_SimpleLevelManager.current.playerLives);
+        int lives = D_SimpleLevelManager.current.playerLives;
+        if (lives < LifeStore)
+        {
+            Hearts[LifeStore - 1].SetActive(false);
+        }
+        else if (lives > LifeStore)
+        {
+            Hearts[lives - 1].SetActive(true);
+        }
+        LifeStore = lives;
     }
     public void UpdateScore()
     {
@@ -70,7 +83,7 @@ public class D_UIManager : MonoBehaviour
 
     public void PauseOrResume()
     {
-        if (PauseCanvas == null && shootScript==null)
+        if (PauseCanvas == null && shootScript == null)
             return;
         if (!paused)
         {

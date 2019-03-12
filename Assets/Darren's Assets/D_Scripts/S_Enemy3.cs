@@ -5,6 +5,7 @@ using UnityEngine;
 public class S_Enemy3 : MonoBehaviour
 {
     public int Speed = 3;
+    int lives = 5;
     public string Type;
     private GameObject player;
     private float wait_seconds = 2.0f;
@@ -21,13 +22,7 @@ public class S_Enemy3 : MonoBehaviour
 
     private void OnEnable()
     {
-        //Reposition();
-    }
-
-    void Reposition()
-    {
-        float randY = Random.Range(-5f, 5f);
-        this.transform.position = new Vector3(-8, randY, 0);
+        lives = 5;
     }
 
     // Update is called once per frame
@@ -54,14 +49,18 @@ public class S_Enemy3 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Bullet"))
+        if (collision.gameObject.tag == "Bullet")
         {
-            GameObject.FindGameObjectWithTag("LevelManager").GetComponent<D_SimpleLevelManager>().EnemyKill(1);
-            Destroy(this.gameObject);
-        }
-    }
+            if (lives == 1)
+            {
+                GameObject.FindGameObjectWithTag("LevelManager").GetComponent<D_SimpleLevelManager>().EnemyKill(5);
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                lives--;
+            }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
+        }
     }
 }

@@ -130,6 +130,7 @@ public class D_PlayerTestScript : MonoBehaviour
                 
         }
         LManager.playerLives = lives;
+        LManager.PlayerTakeDamage();
         already = false;
     }
 

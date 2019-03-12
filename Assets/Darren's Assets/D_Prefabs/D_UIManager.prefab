@@ -53,3 +53,9 @@ MonoBehaviour:
   GameOverCanvas: {fileID: 0}
   paused: 0
   shootScript: {fileID: 0}
+  Hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

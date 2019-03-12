@@ -17,13 +17,7 @@ public class S_Enemy2 : MonoBehaviour
 
     private void OnEnable()
     {
-        //Reposition();
-    }
-
-    void Reposition()
-    {
-        float randY = Random.Range(-5f, 5f);
-        this.transform.position = new Vector3(-8, randY, 0);
+        e_lives = 3;
     }
 
     // Update is called once per frame

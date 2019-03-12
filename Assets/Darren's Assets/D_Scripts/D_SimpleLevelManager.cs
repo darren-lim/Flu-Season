@@ -104,6 +104,7 @@ public class D_SimpleLevelManager : MonoBehaviour
         WaveText.text = "WAVE: " + wave.ToString();
         yield return new WaitForSeconds(2);
         WaveText.gameObject.SetActive(false);
+
         //start spawning
         float[] SpawnWeights;
         int TotalEnemiesLeft = NumberOfEnemiesToSpawn;
@@ -163,6 +164,7 @@ public class D_SimpleLevelManager : MonoBehaviour
                     SpawnNumber = TotalEnemiesLeft;
                 }
             }
+            //finally spawn enemies
             for (int k = 0; k < SpawnNumber; k++)
             {
                 //need to check which enemy is which
