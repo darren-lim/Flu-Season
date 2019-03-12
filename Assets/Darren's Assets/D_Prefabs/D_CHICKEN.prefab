@@ -68,7 +68,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 44d758751362c2a49b1de9ab3060a969, type: 3}
+  m_Sprite: {fileID: 21300014, guid: dddc9047368a7284bac74b9671da0e56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -91,8 +91,9 @@ GameObject:
   - component: {fileID: 1936489007535352177}
   - component: {fileID: 8913188660970876604}
   - component: {fileID: 6435711004422172415}
+  - component: {fileID: 3952294288878413848}
   m_Layer: 0
-  m_Name: D_Enemy1
+  m_Name: D_CHICKEN
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +148,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 3
 --- !u!61 &6435711004422172415
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -174,3 +175,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9077469, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &3952294288878413848
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5202951581089281979}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8cf67eaa667a5184eb27d183c30216f1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

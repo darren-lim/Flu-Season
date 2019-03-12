@@ -18,16 +18,21 @@ public class Shoot : MonoBehaviour
     private int[] ammo = new int[]{15,50,10};
     weaponType currentWeapon;
 
-    
+    private Animator m_animator;
 
     private bool fired = false;
 
     void Awake()
     {
         if (current == null)
+        {
             current = this;
+            m_animator = this.GetComponentInParent<Animator>();
+        }
         else
+        {
             Destroy(this.gameObject);
+        }
     }
 
     void Start()
@@ -47,6 +52,25 @@ public class Shoot : MonoBehaviour
             currentWeapon = (currentWeapon != weaponType.mine) ? currentWeapon + 1 : weaponType.pistol;
         if (Input.GetKeyDown(KeyCode.Q))
             currentWeapon = (currentWeapon != weaponType.pistol) ? currentWeapon - 1 : weaponType.mine;
+
+        switch (currentWeapon)
+        {
+            case weaponType.pistol:
+                m_animator.SetInteger("Gun", 1);
+                break;
+            case weaponType.shotgun:
+                m_animator.SetInteger("Gun", 2);
+                break;
+            case weaponType.machineGun:
+                m_animator.SetInteger("Gun", 3);
+                break;
+            case weaponType.mine:
+                m_animator.SetInteger("Gun", 4);
+                break;
+            default:
+                Debug.Log("ERROR: Invalid Weapon Type");
+                return;
+        }
     }
 
     void Pew()

@@ -92,10 +92,10 @@ TextureImporter:
       name: Antivax Mom_0
       rect:
         serializedVersion: 2
-        x: 72
-        y: 78
-        width: 47
-        height: 49
+        x: 0
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -103,7 +103,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d5ca46807fc28245b34c41df2651c9b
+      spriteID: 912fb74d9c486ac479d68cc20c9bf526
       vertices: []
       indices: 
       edges: []
@@ -112,10 +112,10 @@ TextureImporter:
       name: Antivax Mom_1
       rect:
         serializedVersion: 2
-        x: 9
-        y: 78
-        width: 47
-        height: 49
+        x: 64
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,7 +123,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24b48c1d95632634d82f7aa55edc31c6
+      spriteID: 0f791841d441a3949afdc36cbafe824c
       vertices: []
       indices: 
       edges: []
@@ -132,10 +132,10 @@ TextureImporter:
       name: Antivax Mom_2
       rect:
         serializedVersion: 2
-        x: 12
-        y: 10
-        width: 42
-        height: 42
+        x: 0
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,7 +143,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a087b9732a9731149aecdd3d207fb9a8
+      spriteID: 0af24d699de720e4ab2ffc5c0e661215
       vertices: []
       indices: 
       edges: []
@@ -152,10 +152,10 @@ TextureImporter:
       name: Antivax Mom_3
       rect:
         serializedVersion: 2
-        x: 73
-        y: 142
-        width: 47
-        height: 49
+        x: 64
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,7 +163,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d902fba4f28d3b8489f8c9c133315dcf
+      spriteID: d0c9c3202d518bf4dab8e217cfe9d27c
       vertices: []
       indices: 
       edges: []
@@ -172,10 +172,10 @@ TextureImporter:
       name: Antivax Mom_4
       rect:
         serializedVersion: 2
-        x: 8
-        y: 142
-        width: 47
-        height: 49
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,7 +183,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e34f4ae4510443b4fb7fcd54ff12b1af
+      spriteID: 5c3d9ab1bb26d054f90fb49db3f2ee9d
       vertices: []
       indices: 
       edges: []
