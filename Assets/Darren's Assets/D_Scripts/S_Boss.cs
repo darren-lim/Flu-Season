@@ -71,7 +71,7 @@ public class S_Boss : MonoBehaviour
             Destroy(collision.gameObject);
             if (b_lives == 1)
             {
-                //GameObject.FindGameObjectWithTag("LevelManager").GetComponent<D_SimpleLevelManager>().EnemyKill(3);
+                GameObject.FindGameObjectWithTag("LevelManager").GetComponent<D_SimpleLevelManager>().EnemyKill(3);
                 Destroy(this.gameObject);
             }
             else
