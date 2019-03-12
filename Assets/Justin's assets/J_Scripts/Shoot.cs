@@ -85,7 +85,7 @@ public class Shoot : MonoBehaviour
         float rotation_z = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         clone.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation_z );
         clone.GetComponent<Rigidbody2D>().velocity = direction * speed;
-        FindObjectOfType<D_AudioManager>().Play("Shoot");
+        D_AudioManager.current.Play("Shoot");
     }
 
     void PewShotgun()
@@ -116,7 +116,7 @@ public class Shoot : MonoBehaviour
         clone3.GetComponent<Rigidbody2D>().velocity = direction3 * speed;
 
         ammo[0]--;
-        FindObjectOfType<D_AudioManager>().Play("Shoot");
+        D_AudioManager.current.Play("Shoot");
     }
 
     IEnumerator PewMachineGun()
@@ -130,7 +130,7 @@ public class Shoot : MonoBehaviour
         clone.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation_z + offset);
         clone.GetComponent<Rigidbody2D>().velocity = direction * speed;
         ammo[1]--;
-        FindObjectOfType<D_AudioManager>().Play("Shoot");
+        D_AudioManager.current.Play("Shoot");
         fired = true;
         yield return new WaitForSecondsRealtime(0.1f);
         fired = false;
@@ -143,7 +143,7 @@ public class Shoot : MonoBehaviour
         minePosition.y -= .2f;
         GameObject clone = Instantiate(bullet1, minePosition, Quaternion.identity);
         ammo[2]--;
-        FindObjectOfType<D_AudioManager>().Play("Shoot");
+        D_AudioManager.current.Play("Shoot");
     }
 
     string returnUpdates()

@@ -119,6 +119,7 @@ public class D_PlayerTestScript : MonoBehaviour
             {
                 Debug.Log("GAME OVER!");
                 FindObjectOfType<D_AudioManager>().Play("EnemyDeath");
+                Cursor.visible = true;
                 Destroy(this.gameObject);
             }
             else
