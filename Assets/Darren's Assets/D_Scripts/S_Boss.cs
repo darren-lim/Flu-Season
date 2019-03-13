@@ -6,7 +6,7 @@ public class S_Boss : D_EnemyAbstract
 {
     public int Speed;
     private GameObject player;
-    private float wait_seconds = 1.0f;
+    private float wait_seconds = 0.9f;
     private float start_time = 0.0f;
     public GameObject the_purse;
     private float offset;
@@ -21,7 +21,7 @@ public class S_Boss : D_EnemyAbstract
         start_time = Time.time + wait_seconds;
         bullet_speed = 10f;
         offset = 0.5f;
-        b_lives = 20;
+        b_lives = 35;
         player = GameObject.FindWithTag("Player");
     }
 
@@ -81,7 +81,7 @@ public class S_Boss : D_EnemyAbstract
         {
             if (dead)
                 return;
-            GameObject.FindGameObjectWithTag("LevelManager").GetComponent<D_SimpleLevelManager>().EnemyKill(10);
+            GameObject.FindGameObjectWithTag("LevelManager").GetComponent<D_SimpleLevelManager>().EnemyKill(20);
             dead = true;
             Destroy(this.gameObject);
         }

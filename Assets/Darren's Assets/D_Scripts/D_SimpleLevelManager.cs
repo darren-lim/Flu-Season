@@ -223,6 +223,8 @@ public class D_SimpleLevelManager : MonoBehaviour
     //game over, set time to 0
     public void GameOver()
     {
+        Cursor.visible = true;
+        Time.timeScale = 0;
         if (wave > 10)
         {
             GOText.text = "You Win";

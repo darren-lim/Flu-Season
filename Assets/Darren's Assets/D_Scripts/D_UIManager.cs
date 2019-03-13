@@ -62,9 +62,10 @@ public class D_UIManager : MonoBehaviour
     public void GameOver()
     {
         GameOverCanvas.gameObject.SetActive(true);
+        if (shootScript != null)
+            shootScript.enabled = false;
         GOScore.text = string.Format("Final Reputation: {0}", D_SimpleLevelManager.current.Score);
         //HighGOScore.text = string.Format("Highest Reputation: {0}", D_SimpleLevelManager.current.Score);
-        Time.timeScale = 0;
     }
 
     public void UpdateGun()
@@ -91,6 +92,7 @@ public class D_UIManager : MonoBehaviour
             PauseCanvas.gameObject.SetActive(true);
             Time.timeScale = 0;
             shootScript.enabled = false; //MAKE THIS A UNITY EVENT THIS IS TEMPORARY FIX
+            Cursor.visible = true;
         }
         else
         {
@@ -98,6 +100,7 @@ public class D_UIManager : MonoBehaviour
             PauseCanvas.gameObject.SetActive(false);
             Time.timeScale = 1;
             shootScript.enabled = true;
+            Cursor.visible = false;
         }
     }
 }

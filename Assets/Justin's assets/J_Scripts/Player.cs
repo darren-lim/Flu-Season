@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     //movement
     private Rigidbody2D rb;
-    private Collider2D cd;          private float cdcd = 3f;
+    private Collider2D cd;          //private float cdcd = 3f;
 
     [SerializeField] protected float speed = 4f;
 
