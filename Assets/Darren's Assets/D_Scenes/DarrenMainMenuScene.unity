@@ -738,6 +738,28 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8266918101596870918, guid: 0b23d34325712354a89a01fc7d5adea0,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ef69aa006de018b448d25de327ad64dd,
+        type: 2}
+    - target: {fileID: 8266918101596870918, guid: 0b23d34325712354a89a01fc7d5adea0,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 21672462177665920, guid: ef69aa006de018b448d25de327ad64dd,
+        type: 2}
+    - target: {fileID: 8266918101596870918, guid: 0b23d34325712354a89a01fc7d5adea0,
+        type: 3}
+      propertyPath: m_characterSpacing
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266918101596870918, guid: 0b23d34325712354a89a01fc7d5adea0,
+        type: 3}
+      propertyPath: m_textAlignment
+      value: 4098
+      objectReference: {fileID: 0}
     - target: {fileID: 8266918102299196155, guid: 0b23d34325712354a89a01fc7d5adea0,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -747,6 +769,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266918102299196155, guid: 0b23d34325712354a89a01fc7d5adea0,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ef69aa006de018b448d25de327ad64dd,
+        type: 2}
+    - target: {fileID: 8266918102299196155, guid: 0b23d34325712354a89a01fc7d5adea0,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 21672462177665920, guid: ef69aa006de018b448d25de327ad64dd,
+        type: 2}
+    - target: {fileID: 8266918102299196155, guid: 0b23d34325712354a89a01fc7d5adea0,
+        type: 3}
+      propertyPath: m_characterSpacing
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8266918101456174668, guid: 0b23d34325712354a89a01fc7d5adea0,
         type: 3}
@@ -765,6 +804,49 @@ PrefabInstance:
     - target: {fileID: 186227195, guid: 0b23d34325712354a89a01fc7d5adea0, type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 186227195, guid: 0b23d34325712354a89a01fc7d5adea0, type: 3}
+      propertyPath: m_characterSpacing
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 186227195, guid: 0b23d34325712354a89a01fc7d5adea0, type: 3}
+      propertyPath: m_textAlignment
+      value: 4098
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266918102007200640, guid: 0b23d34325712354a89a01fc7d5adea0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266918102663440259, guid: 0b23d34325712354a89a01fc7d5adea0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266918101441369856, guid: 0b23d34325712354a89a01fc7d5adea0,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266918101441369856, guid: 0b23d34325712354a89a01fc7d5adea0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266918101618866034, guid: 0b23d34325712354a89a01fc7d5adea0,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266918101618866034, guid: 0b23d34325712354a89a01fc7d5adea0,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266918101618866034, guid: 0b23d34325712354a89a01fc7d5adea0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b23d34325712354a89a01fc7d5adea0, type: 3}
