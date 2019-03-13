@@ -9,7 +9,7 @@ public class D_AudioManager : MonoBehaviour
 {
     //public AudioMixer audioGroup;
     //public AudioSource music;
-    public Slider slider;
+    //public Slider slider;
     public D_Sound[] sounds;
     public List<AudioSource> sources;
     public static D_AudioManager current;
@@ -40,9 +40,10 @@ public class D_AudioManager : MonoBehaviour
     private void Start()
     {
         Play("Theme");
+        /*
         if (slider == null)
             return;
-        slider.value = PlayerPrefs.GetFloat("Volume", 1);
+        slider.value = PlayerPrefs.GetFloat("Volume", 1);*/
     }
 
     public void Play(string name)
@@ -65,15 +66,12 @@ public class D_AudioManager : MonoBehaviour
         a.Play();
     }
 
-    public void SetVolumeToSlider()
+    public void SetVolume(float Vol)
     {
-        if (slider == null)
-            return;
-        PlayerPrefs.SetFloat("Volume", slider.value);
-        foreach (D_Sound s in sounds)
+        PlayerPrefs.SetFloat("Volume", Vol);
+        foreach (AudioSource s in sources)
         {
-            s.source = this.gameObject.GetComponent<AudioSource>();
-            s.source.volume = PlayerPrefs.GetFloat("Volume", 1);
+            s.volume = PlayerPrefs.GetFloat("Volume", 1);
         }
     }
 }

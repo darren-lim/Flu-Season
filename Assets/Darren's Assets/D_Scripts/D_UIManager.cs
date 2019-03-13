@@ -90,6 +90,8 @@ public class D_UIManager : MonoBehaviour
         {
             paused = true;
             PauseCanvas.gameObject.SetActive(true);
+            PauseCanvas.transform.Find("MainPause").gameObject.SetActive(true);
+            PauseCanvas.transform.Find("Options").gameObject.SetActive(false);
             Time.timeScale = 0;
             shootScript.enabled = false; //MAKE THIS A UNITY EVENT THIS IS TEMPORARY FIX
             Cursor.visible = true;
