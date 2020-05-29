@@ -12,5 +12,5 @@ W A S D to move, mouse to look around, mouse left click to shoot, space to dodge
 [Google Doc Link](https://docs.google.com/document/d/1-0cg3eibD03GJkF_3u3YAPYANWyO2jH5hjTbonYtb4c/edit?usp=sharing)
 
 ## Game Links
-Itch.io: https://burger0l0.itch.io/flu-season-mania
+Itch.io: https://burger0l0.itch.io/flu-season-mania  
 Play in browser: https://dartren01.github.io/Flu-Season/
